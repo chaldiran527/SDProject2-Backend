@@ -15,6 +15,7 @@ const equiposTrabajoRoutes = require('./routes/equiposTrabajoRoutes');
 const estudianteRoutes = require('./routes/estudianteRoutes');
 const notificacionesRoutes = require('./routes/notificacionRoutes');
 const fechaSistemaRoutes = require('./routes/fechaSistemaRoutes');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
@@ -26,6 +27,14 @@ cron.schedule('*/20 * * * * *', () => {
 });
 
 app.use(express.json());
+
+app.use(cors(
+  {
+      origin: ["https://sd-project2-frontend.vercel.app"],
+      methods: ["POST", "GET", "PUT", "DELETE"],
+      credentials: true
+  }
+));
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
