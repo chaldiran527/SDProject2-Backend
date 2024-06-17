@@ -17,7 +17,7 @@ const enviarNotificacion = async (actividad, tipo) => {
 
 const setFechaSimulada = async () => {
     try {
-        const response = await fetch('https://sd-project2-frontend.vercel.app/api/fechaSistemaRoutes/getFechaSimulada', {
+        const response = await fetch('https://sdproject2-api.onrender.com/api/fechaSistemaRoutes/getFechaSimulada', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
